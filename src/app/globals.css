@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  a { @apply text-teal no-underline; }
+  a:hover { @apply text-orange; }
+  :focus-visible { outline: 2px solid #0B4F4A; outline-offset: 2px; }
+  h1, h2, h3 { @apply font-serif font-light; }
+}
+
+@layer components {
+  .shell { @apply max-w-[1440px] mx-auto px-[clamp(16px,3vw,32px)]; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-orange; }
+  .label { @apply text-[10px] font-semibold uppercase tracking-[0.12em] text-muted; }
+  .meta { @apply text-[12px] font-medium text-muted; }
+
+  .btn { @apply inline-flex items-center justify-center min-h-[44px] px-5 rounded-full text-[13px] font-semibold transition-colors; }
+  .btn-primary { @apply btn bg-orange text-white hover:brightness-95; }
+  .btn-dark { @apply btn bg-ink text-paper hover:brightness-150; }
+  .btn-outline { @apply btn border border-rule text-ink bg-white hover:border-ink; }
+
+  .pill { @apply inline-flex items-center gap-2 whitespace-nowrap min-h-[42px] px-[17px] rounded-full border text-[13px] font-semibold transition-colors; }
+  .pill-on { @apply bg-ink text-paper border-ink; }
+  .pill-off { @apply bg-white text-ink-2 border-rule hover:border-rule-3; }
+
+  .card { @apply bg-white border border-rule; }
+  .rail { scrollbar-width: none; -ms-overflow-style: none; }
+  .rail::-webkit-scrollbar { display: none; }
+
+  .hair { @apply grid gap-px; }
+  .hair > * { @apply outline outline-1 outline-rule; }
+  .hair-dark > * { @apply outline outline-1 outline-rule-dark; }
+  .hair-teal > * { @apply outline outline-1 outline-teal-line; }
+
+  .ph { background: repeating-linear-gradient(135deg, #E6E0D2 0 7px, #EFEAE0 7px 14px); }
+  .ph-dark { background: repeating-linear-gradient(135deg, #2A2725 0 8px, #211E1C 8px 16px); }
+
+  .prose-r { @apply max-w-[72ch] text-[clamp(15px,1.4vw,17px)] leading-[1.72] text-ink-3; }
+  .prose-r p + p { @apply mt-4; }
+}
+
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.78); } }
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
